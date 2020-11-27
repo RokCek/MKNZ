@@ -1,0 +1,47 @@
+@model IEnumerable<web.Models.Band>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Music)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BandName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Music)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BandID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BandID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BandID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
