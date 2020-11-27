@@ -14,24 +14,15 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ReservationID" />
             <div class="form-group">
-                <label asp-for="UserID" class="control-label"></label>
-                <input asp-for="UserID" class="form-control" />
-                <span asp-validation-for="UserID" class="text-danger"></span>
+                <label asp-for="UserNick" class="control-label"></label>
+                <input asp-for="UserNick" class="form-control" />
+                <span asp-validation-for="UserNick" class="text-danger"></span>
             </div>
+           
             <div class="form-group">
-                <label asp-for="EventID" class="control-label"></label>
-                <select asp-for="EventID" class="form-control" asp-items="ViewBag.EventID"></select>
-                <span asp-validation-for="EventID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ReservationDate" class="control-label"></label>
-                <input asp-for="ReservationDate" class="form-control" />
-                <span asp-validation-for="ReservationDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EventDate" class="control-label"></label>
-                <input asp-for="EventDate" class="form-control" />
-                <span asp-validation-for="EventDate" class="text-danger"></span>
+                <label asp-for="EventName" class="control-label"></label>
+                <input asp-for="EventName" class="form-control" />
+                <span asp-validation-for="EventName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

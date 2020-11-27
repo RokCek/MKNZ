@@ -57,7 +57,7 @@ namespace web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EventID,BandID,BandName,Music")] Band band)
+        public async Task<IActionResult> Create([Bind("BandName,Music")] Band band)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EventID,BandID,BandName,Music")] Band band)
+        public async Task<IActionResult> Edit(int id, [Bind("BandName,Music")] Band band)
         {
             if (id != band.BandID)
             {

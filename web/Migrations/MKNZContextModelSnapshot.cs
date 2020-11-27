@@ -246,6 +246,9 @@ namespace web.Migrations
 
                     b.HasKey("BandID");
 
+                    b.HasIndex("EventID")
+                        .IsUnique();
+
                     b.ToTable("Band");
                 });
 
@@ -256,13 +259,16 @@ namespace web.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BandID")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("EDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EventName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Opis")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EventID");
@@ -346,6 +352,8 @@ namespace web.Migrations
 
                     b.HasIndex("EventID");
 
+                    b.HasIndex("UserID");
+
                     b.ToTable("Reservation");
                 });
 
@@ -368,9 +376,6 @@ namespace web.Migrations
                     b.Property<string>("OwnerId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("ReservationID")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
@@ -380,8 +385,6 @@ namespace web.Migrations
                     b.HasKey("UserID");
 
                     b.HasIndex("OwnerId");
-
-                    b.HasIndex("ReservationID");
 
                     b.ToTable("User");
                 });
@@ -437,6 +440,15 @@ namespace web.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("web.Models.Band", b =>
+                {
+                    b.HasOne("web.Models.Event", null)
+                        .WithOne("Band")
+                        .HasForeignKey("web.Models.Band", "EventID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("web.Models.Inter", b =>
                 {
                     b.HasOne("web.Models.Band", "Band")
@@ -446,7 +458,7 @@ namespace web.Migrations
                         .IsRequired();
 
                     b.HasOne("web.Models.Event", "Event")
-                        .WithMany("Bands")
+                        .WithMany()
                         .HasForeignKey("EventID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -472,6 +484,12 @@ namespace web.Migrations
                         .HasForeignKey("EventID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("web.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("web.Models.User", b =>
@@ -479,10 +497,6 @@ namespace web.Migrations
                     b.HasOne("web.Models.ApplicationUser", "Owner")
                         .WithMany()
                         .HasForeignKey("OwnerId");
-
-                    b.HasOne("web.Models.Reservation", null)
-                        .WithMany("Users")
-                        .HasForeignKey("ReservationID");
                 });
 #pragma warning restore 612, 618
         }

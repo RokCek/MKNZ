@@ -58,7 +58,7 @@ namespace web.Controllers
         [Authorize(Roles = "Uporabnik, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BandID,EventID,EventName,EDate")] Event @event)
+        public async Task<IActionResult> Create([Bind("BandID,EventID,EventName,EDate,ImageUrl, Opis")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace web.Controllers
         [Authorize(Roles = "Uporabnik, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BandID,EventID,EventName,EDate")] Event @event)
+        public async Task<IActionResult> Edit(int id, [Bind("BandID,EventID,EventName,EDate,ImageUrl,Opis")] Event @event)
         {
             if (id != @event.EventID)
             {

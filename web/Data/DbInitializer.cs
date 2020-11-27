@@ -56,12 +56,12 @@ namespace web.Data
 
             var medias = new Media[]
             {
-            new Media{EventID=0,MediaDate=DateTime.Parse("2020-9-1"),Event=0,Url="https://www.rocker.si/wp-content/uploads/2020/10/concert-crowd-music-fanclub-hand-using-cellphone-taking-video-record-live-stream_41418-3380-626x381-1.jpg",ImageName="Koncert0"},
-            new Media{EventID=1,MediaDate=DateTime.Parse("2020-9-10"),Event=1,Url="https://www.siddharta.net/storage/images/2005/4/041210-ljubljana_2602_4.jpg",ImageName="Koncert1"}
+            new Media{EventID=0,MediaDate=DateTime.Parse("2020-9-1"),Url="https://www.rocker.si/wp-content/uploads/2020/10/concert-crowd-music-fanclub-hand-using-cellphone-taking-video-record-live-stream_41418-3380-626x381-1.jpg",ImageName="Koncert0"},
+            new Media{EventID=1,MediaDate=DateTime.Parse("2020-9-10"),Url="https://www.siddharta.net/storage/images/2005/4/041210-ljubljana_2602_4.jpg",ImageName="Koncert1"}
             };
             foreach (Media m in medias)
             {
-                context.Media.Add(m);
+                context.Medias.Add(m);
             }
 
             var reservations = new Reservation[]
@@ -75,8 +75,8 @@ namespace web.Data
             }
             */
             var roles = new IdentityRole[] {
-                new IdentityRole{Id="1", Name="Administrator"},
-                new IdentityRole{Id="2", Name="Manager"},
+                new IdentityRole{Id="1", Name="Admin"},
+                new IdentityRole{Id="2", Name="Uporabnik"},
                 new IdentityRole{Id="3", Name="Obiskovalec"}
             };
 

@@ -5,12 +5,12 @@ namespace web.Models
 {
     public class Event
     {
-        public int BandID { get; set; }
         public int EventID { get; set; }
         public string EventName { get; set; }
-
         public DateTime EDate { get; set; }
 
-        public List<Inter> Bands { get; set; }
+        public Band Band { get; set; }
+
+        public string Opis {get;set;}
     }
 }

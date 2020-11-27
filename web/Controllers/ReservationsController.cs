@@ -52,7 +52,6 @@ namespace web.Controllers
         // GET: Reservations/Create
         public IActionResult Create()
         {
-            ViewData["EventID"] = new SelectList(_context.Events, "EventID", "EventID");
             return View();
         }
 
@@ -69,7 +68,6 @@ namespace web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EventID"] = new SelectList(_context.Events, "EventID", "EventID", reservation.EventID);
             return View(reservation);
         }
 
@@ -86,7 +84,6 @@ namespace web.Controllers
             {
                 return NotFound();
             }
-            ViewData["EventID"] = new SelectList(_context.Events, "EventID", "EventID", reservation.EventID);
             return View(reservation);
         }
 
@@ -122,7 +119,6 @@ namespace web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EventID"] = new SelectList(_context.Events, "EventID", "EventID", reservation.EventID);
             return View(reservation);
         }
 

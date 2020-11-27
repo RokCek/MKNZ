@@ -6,14 +6,14 @@ namespace web.Models
     public class Reservation
     {
         public int ReservationID { get; set; }
-        public int UserID { get; set; }
-        public int EventID { get; set; }
+        public string UserNick { get; set; }
+        public string EventName { get; set; }
         public DateTime ReservationDate { get; set; }
 
         public DateTime EventDate { get; set; }
 
         public Event Event { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public User User { get; set; }
     }
 }
