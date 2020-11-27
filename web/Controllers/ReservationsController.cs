@@ -60,7 +60,7 @@ namespace web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ReservationID,UserID,EventID,ReservationDate,EventDate")] Reservation reservation)
+        public async Task<IActionResult> Create([Bind("ReservationID,UserID,EventID,ReservationDate,EventDate,EventName,UserNick")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReservationID,UserID,EventID,ReservationDate,EventDate")] Reservation reservation)
+        public async Task<IActionResult> Edit(int id, [Bind("ReservationID,UserID,EventID,ReservationDate,EventDate,EventName,UserNick")] Reservation reservation)
         {
             if (id != reservation.ReservationID)
             {
