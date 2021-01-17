@@ -38,7 +38,7 @@ namespace web
             //.AddEntityFrameworkStores<MKNZContext>();
 
             services.AddDbContext<MKNZContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MKNZContext")));
+            options.UseSqlServer(Configuration.GetConnectionString("AzureContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

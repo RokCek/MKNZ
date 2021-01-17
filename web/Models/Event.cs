@@ -12,5 +12,7 @@ namespace web.Models
         public Band Band { get; set; }
 
         public string Opis {get;set;}
+
+        public string img_src {get; set;}
     }
 }
