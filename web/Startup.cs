@@ -41,6 +41,8 @@ namespace web
 
             services.AddDbContext<MKNZContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("AzureContext")));
+
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +61,12 @@ namespace web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c => 
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
             app.UseRouting();
 
             app.UseAuthentication();
@@ -71,6 +79,7 @@ namespace web
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
         }
     }
 }
