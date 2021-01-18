@@ -46,11 +46,9 @@ namespace web
             services.AddDbContext<MKNZContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("AzureContext")));
 
-<<<<<<< HEAD
+
             services.AddSwaggerGen();
-=======
-            
->>>>>>> d57082aca4aca6e2d95e0af6c5f7bf8daca56894
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
