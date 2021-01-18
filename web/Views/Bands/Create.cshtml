@@ -4,9 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Vstvari</h1>
 
-<h4>Band</h4>
+<h4>Bend</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,12 +14,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
             <div class="form-group">
-                <label asp-for="BandName" class="control-label"></label>
+                <label asp-for="BandName" class="control-label">Ime Benda</label>
                 <input asp-for="BandName" class="form-control" />
                 <span asp-validation-for="BandName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Music" class="control-label"></label>
+                <label asp-for="Music" class="control-label">Zvrst</label>
                 <select asp-for="Music" class="form-control">
                     <option>rock</option>
                     <option>metal</option>
@@ -41,6 +41,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Nazaj na seznam</a>
 </div>
 
