@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using web.Data;
 using web.Models;
+using web.Filters;
 
 namespace web.Controllers_Api
 {
     [Route("api/v1/Event")]
     [ApiController]
+    
     public class EventsAPIController : ControllerBase
     {
         private readonly MKNZContext _context;
@@ -46,6 +48,7 @@ namespace web.Controllers_Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [ApiKeyAuth]
         public async Task<IActionResult> PutEvent(int id, Event @event)
         {
             if (id != @event.EventID)
@@ -78,6 +81,7 @@ namespace web.Controllers_Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [ApiKeyAuth]
         public async Task<ActionResult<Event>> PostEvent(Event @event)
         {
             _context.Events.Add(@event);
@@ -88,6 +92,7 @@ namespace web.Controllers_Api
 
         // DELETE: api/EventsAPI/5
         [HttpDelete("{id}")]
+        [ApiKeyAuth]
         public async Task<ActionResult<Event>> DeleteEvent(int id)
         {
             var @event = await _context.Events.FindAsync(id);

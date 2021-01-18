@@ -6,13 +6,6 @@
 
 <h1>Prihajajoči dogodki</h1>
 
-<form asp-controller="Events" asp-action="Index">
-    <p>
-        Title: <input type="text" name="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
-
 <p>
     <a asp-action="Create">Novo</a>
 </p>
@@ -21,17 +14,22 @@
 
     @foreach (var item in Model)
     {
+
+        var img = item.img_src;
+
         <div class="card">
-            <div class="card-img" style="background-image: url('https://ichef.bbci.co.uk/news/976/cpsprodpb/41CF/production/_109474861_angrycat-index-getty3-3.jpg');"></div>
+            
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.EventName)</h5>
                 <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.EDate)</h6>
                 <p class="card-text">@Html.DisplayFor(modelItem => item.Opis)</p>
-                <img src="@item.img_src" alt="image" />
+                <img class="card-img-top" src="@img" alt="image" />
+                
                 <a href="Reservations" target="Create" class="btn btn-primary">Rezerviraj</a>
                 
             </div>
         </div>
+
     }
 
 

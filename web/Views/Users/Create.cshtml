@@ -34,7 +34,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Music" class="control-label"></label>
-                <select asp-for="Music" class="form-control"></select>
+                <select asp-for="Music" class="form-control">
+                    <option>rock</option>
+                    <option>metal</option>
+                    <option>punk</option>
+                    <option>pop</option>
+                    <option>indie</option>
+                    <option>hiphop</option>
+                    <option>alternative</option>
+                    <option>blues</option>
+                    <option>jazz</option>
+                </select>
                 <span asp-validation-for="Music" class="text-danger"></span>
             </div>
             <div class="form-group">
