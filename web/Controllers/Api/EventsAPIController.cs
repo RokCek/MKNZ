@@ -7,30 +7,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using web.Data;
 using web.Models;
-using web.Filters;
 
 namespace web.Controllers_Api
 {
     [Route("api/v1/Event")]
     [ApiController]
-    
-    public class EventsAPIController : ControllerBase
+    public class EventsApiController : ControllerBase
     {
         private readonly MKNZContext _context;
 
-        public EventsAPIController(MKNZContext context)
+        public EventsApiController(MKNZContext context)
         {
             _context = context;
         }
 
-        // GET: api/EventsAPI
+        // GET: api/EventsApi
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Event>>> GetEvents()
         {
             return await _context.Events.ToListAsync();
         }
 
-        // GET: api/EventsAPI/5
+        // GET: api/EventsApi/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEvent(int id)
         {
@@ -44,11 +42,10 @@ namespace web.Controllers_Api
             return @event;
         }
 
-        // PUT: api/EventsAPI/5
+        // PUT: api/EventsApi/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        [ApiKeyAuth]
         public async Task<IActionResult> PutEvent(int id, Event @event)
         {
             if (id != @event.EventID)
@@ -77,11 +74,10 @@ namespace web.Controllers_Api
             return NoContent();
         }
 
-        // POST: api/EventsAPI
+        // POST: api/EventsApi
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        [ApiKeyAuth]
         public async Task<ActionResult<Event>> PostEvent(Event @event)
         {
             _context.Events.Add(@event);
@@ -90,9 +86,8 @@ namespace web.Controllers_Api
             return CreatedAtAction("GetEvent", new { id = @event.EventID }, @event);
         }
 
-        // DELETE: api/EventsAPI/5
+        // DELETE: api/EventsApi/5
         [HttpDelete("{id}")]
-        [ApiKeyAuth]
         public async Task<ActionResult<Event>> DeleteEvent(int id)
         {
             var @event = await _context.Events.FindAsync(id);
