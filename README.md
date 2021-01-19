@@ -11,5 +11,8 @@ Slike spletne aplikacije:
 ![alt text](https://github.com/RokCek/MKNZ/blob/master/Screenshot%20(19).png)
 ![alt text](https://github.com/RokCek/MKNZ/blob/master/Screenshot%20(20).png)
 ![alt text](https://github.com/RokCek/MKNZ/blob/master/Screenshot%20(21).png)
+![alt text](https://github.com/RokCek/MKNZ/blob/master/android1.png)
+![alt text](https://github.com/RokCek/MKNZ/blob/master/android2.png)
+
 
 Skupaj sva naredila spletno aplikacijo in avtentikacijo. Rok je aplikacijo prenesel na azure in na github, Tevž je naredil api in android aplikacijo.
